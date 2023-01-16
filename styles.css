@@ -1,34 +1,70 @@
 html {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 1920px;
   margin: 0 auto;
 
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-h1{
+h1 {
   font-size: 2.5rem;
   font-weight: 500;
 }
 
-h1 b{
+h1 b {
   font-size: 4rem;
   font-weight: 600;
 }
+/*kan geen martel font vinden */
 
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  left: 1rem;
+  font-family: "Martel", serif;
+  padding-left: 2rem;
+  margin-top: 108px;
 
+}
+.tag {
+  align-items: center;
+  background-color: #f4f4f5;
+  border-radius: 1;
+  color: #222;
+  height: 2em;
+  padding-left:3rem;
+  line-height: 1.5;
+  white-space: nowrap;
 
+  align-items: center;
+}
+p {
+  font-family: "Martel", serif;
+  font-weight: 400;
+  padding-left: 2rem;
+  left: 1rem;
+  right: 2rem;
+  margin-top: 6rem;
+  justify-content: center;
+  max-width: 882;
+}
+h5{
+font-weight: 700;
+font-family:'Monserrat';
+font-size: 1.5rem;
+padding-left: 2rem;
+margin-top: 5.5rem;
 
-
+}
 header {
   height: 100vh;
   height: 100svh;
@@ -42,7 +78,7 @@ header {
   color: white;
 }
 
-nav{
+nav {
   position: sticky;
   display: flex;
   justify-content: space-between;
@@ -53,43 +89,42 @@ header nav .site-nav {
   height: 100%;
 }
 
-header nav .site-nav div{
+header nav .site-nav div {
   height: 3px;
   width: 40px;
-  margin: .5rem;
+  margin: 0.5rem;
   background-color: white;
 }
 
-header .title{
-  position:absolute;
+header .title {
+  position: absolute;
   bottom: 2rem;
   left: 1rem;
 }
 
-
 svg {
   position: relative;
-    height: 50px;
-  padding: 1rem 0 .5rem 0;
+  height: 50px;
+  padding: 1rem 0 0.5rem 0;
 }
 
 @media screen and (min-width: 600px) {
-header .title{
-  left: 5%;
-}
-svg {
-  left: 0;
-}
+  header .title {
+    left: 5%;
+  }
+  svg {
+    left: 0;
+  }
 
-nav{
-  padding: 0 5%;
+  nav {
+    padding: 0 5%;
+  }
+  h2 {
+    left: 5%;
+  }
 }
-
-}
-
-
 
 /* main */
-main{
+main {
   height: 100vh;
 }

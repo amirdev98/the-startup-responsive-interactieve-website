@@ -2,6 +2,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Martel','Montserrat' serif;
   
 }
 
@@ -15,6 +16,52 @@ body {
   margin: 0 auto;
   background-color: rgba(253, 250, 246, 1)
 }
+ /*header*/
+header {
+  height: 100vh;
+  height: 100svh;
+  max-height: 1080px;
+  min-width: 502px;
+  position: relative;
+  background-color: darkgrey;
+  background-image: url("assets/header-image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+nav {
+  position: fixed;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  align-items: center;
+}
+header nav .site-nav {
+  height: 100%;
+}
+
+header nav .site-nav div {
+  height: 3px;
+  width: 40px;
+  margin: 0.5rem;
+  background-color: white;
+}
+
+header .title {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+}
+
+svg {
+  position: relative;
+  height: 50px;
+  padding: 1rem 0 0.5rem 0;
+}
+
 
 .content {
   min-width:100%;
@@ -92,26 +139,25 @@ h3 {
 }
 
 .container__rectangle {
-  margin-top: 172px;
+  margin-top: 10rem;
   display: flex;
   flex-wrap: wrap;
 }
 
 .black-container1 {
-  margin: 0.2em;
+  margin: 0.5em;
   min-width:430px;
   max-width: 430px;
   max-height: 377px;
   min-height: 377px;
   background-color:rgba(34, 34, 34, 1);
   color:rgba(244, 244, 245, 1);
-  font-family: 'Martel', serif;
-  font-weight: 400;
 
 }
+
 
 .black-container2 {
-  margin: 0.2em;
+  margin: 0.5rem;
   min-width:430px;
   max-width: 430px;
   max-height: 377px;
@@ -120,9 +166,11 @@ h3 {
   color:rgba(244, 244, 245, 1);
   font-family: 'Martel', serif;
   font-weight: 400;
+  
+  
 }
 .black-container3 {
-  margin: 0.2em;
+  margin:0.5rem;
   min-width:430px;
   max-width: 430px;
   max-height: 377px;
@@ -132,68 +180,85 @@ h3 {
   font-family: 'Martel', serif;
   font-weight: 400;
 }
-
-
 
 
 .black-container-content-1{
   font-family: 'Montserrat', serif;
   font-weight: 700;
-  line-height: 7rem;
-  font-size: 4rem;
+  line-height: ;
+  font-size: 3.5rem;
+  padding-left: 2.5rem;
+  margin-bottom: 0.5rem;
+  margin-top: 3rem;
+
 }
-.black-container-content-1.2{
+.black-container-content-2{
   font-family:'Martel', serif;
   font-weight:400;
-  font-size:24px;
-  margin-top:1em;1  q
-  
+  font-size: 1.5rem;
+  padding-left: 2rem;
+  margin: 0.1rem;
+}
+.black-container-content-3{
+  font-family:'Martel', serif;
+  font-weight:400;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  margin: 2rem;
+  line-height: 1.8rem;
 }
 
-header {
-  height: 100vh;
-  height: 100svh;
-  max-height: 1080px;
-  min-width: 502px;
+
+
+.macbook-img{
+  /* height: 100vh;
+  height: 100svh; */
+  /* max-height: 1080px; */
+  /* width: 1440px; */
   position: relative;
-  background-color: darkgrey;
-  background-image: url("assets/header-image.png");
+  /* max-width:1920px; */
+  min-width: 502px;
+  min-height: 250px;
+  position: inherit;
+  background-image: url("assets/nike-create-your-kit.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  color: white;
+  margin-top: 17rem ;
+  margin-left: -2rem;
+
+ 
+}
+figcaption{
+  font-family: 'Martel', serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #222;
+  margin-top: 2rem;
+}
+.moving-away{
+  font-family: "Montserrat", serif;
+  line-height: 3rem;
+  margin-bottom: ;
 }
 
-nav {
-  position: fixed;
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 1rem;
-  align-items: center;
-}
-header nav .site-nav {
-  height: 100%;
-}
+.blue-shirt-big-img{
 
-header nav .site-nav div {
-  height: 3px;
-  width: 40px;
-  margin: 0.5rem;
-  background-color: white;
-}
-
-header .title {
-  position: absolute;
-  bottom: 2rem;
-  left: 1rem;
-}
-
-svg {
   position: relative;
-  height: 50px;
-  padding: 1rem 0 0.5rem 0;
+height: auto;
+  min-width: 502px;
+  min-height: 250px;
+  position: inherit;
+  background-image: url("assets/blue-shirt-big-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 17rem ;
+  margin-left: -2rem;
+
+ 
 }
+
+
+
 
 /* main */
 main {
@@ -219,16 +284,22 @@ main {
   main {
     margin: 0 10%;
   }
+  .macbook-img{
+    margin-left: 5%;
+  }
   .tag__container {
+    margin-left: 5%;
+  }
+  .macbook-without-img{
     margin-left: 5%;
   }
 }
 
-@media screen and (min-width: 300px) {
-  .container_1 {
-    min-width: 50%;
 
+@media screen and (min-width: 300px) {
+  /* .container_1 {
+    min-width: 50%;
     margin-left: 5%;
-  }
+  } */
   }
 

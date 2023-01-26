@@ -1,6 +1,7 @@
   <!DOCTYPE html>
 <html lang="nl">
   <head>
+    <script src="/scripts/script.js" defer></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -134,6 +135,130 @@
 
     <section class="blue-shirt-big-img">
       </section>
+
+
+
+
+
+
+      <!--CONTACT SECTION-->
+      <div class="text-container">
+        <section class="contact-container">
+          <article>
+            <picture>
+              <source
+                media="(max-width: 640px)"
+                srcset="assets/auke-meijer.png"
+              />
+              <div class="bottom-left" style="color: red; font-weight: bold">
+                Auke Meijer
+              </div>
+              <div class="bottom-left" style="color: black; font-weight: Bold">
+                CFO/COO
+              </div>
+              <div
+                class="bottom-left"
+                style="color: black; font-size: small; font-weight: light"
+              >
+                auke@thevally.nl
+              </div>
+              <img
+                src="assets/auke-meijer.png"
+                width="350"
+                height="300"
+                alt="images of desktop photo"
+              />
+            </picture>
+          </article>
+
+          <article>
+            <picture>
+              <source
+                media="(max-width: 640px)"
+                srcset="assets/philip-kok.png"
+              />
+              <div class="bottom-left" style="color: red; font-weight: bold">
+                Philip Kok
+              </div>
+              <div class="bottom-left" style="color: black; font-weight: Bold">
+                CEO
+              </div>
+              <div
+                class="bottom-left"
+                style="color: black; font-size: small; font-weight: light"
+              >
+                philip@thevally.nl
+              </div>
+              <img
+                src="assets/philip-kok.png"
+                width="350"
+                height="300"
+                alt="image mobile phone picture"
+              />
+            </picture>
+          </article>
+        </section>
+
+        <h3>Want to know what digital can do for you service?</h3>
+        <button type="button" id="contact-us-button">Contact Us</button>
+      </div>
+      <dialog id="contact-us-dialog">
+        <form method="dialog">
+          <h5>Contact</h5>
+          <h6>
+            Please contact us if you have any questions or want more information
+          </h6>
+          <label for="fname">First Name</label>
+          <input
+            type="text"
+            id="fname"
+            name="firstname"
+            placeholder="Your name.."
+          />
+
+          <label for="lname">Last Name</label>
+          <input
+            type="text"
+            id="lname"
+            name="lastname"
+            placeholder="Your last name.."
+          />
+
+          <label for="email">Email Adress</label>
+          <input
+            type="text"
+            id="email"
+            name="Email Adress"
+            placeholder="Email Address"
+          />
+
+          <label for="subject">Subject</label>
+          <textarea
+            id="subject"
+            name="subject"
+            placeholder="Additional Comments"
+            style="height: 200px"
+          ></textarea>
+
+          <button type="submit" class="btn-submit" onclick="openPopup()">
+            Send
+          </button>
+        </form>
+      </dialog>
+      <!--POP thank you-->
+      <div class="popup" id="popup">
+        <img src="assets/logo-red.png" />
+        <h3>Thank you!</h3>
+        <p>Your details has been succesfully submitted.</p>
+        <button type="button" onclick="closePopup()">OK</button>
+      </div>
+
+
+      
+      
+
+
+
       <footer></footer>
     </main>
   </div>

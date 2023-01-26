@@ -1,0 +1,203 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Dialogs!</title>
+<style>
+	body {
+		width: 40em;
+		margin: 0 auto;
+		font-family: sans-serif;
+	}
+	button {
+		font: inherit;
+		background: green;
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		padding: .5em 1em;
+		cursor: pointer;
+	}
+	label {
+		display: block;
+		margin: 20px 0;
+	}
+
+	/* Whoah! */
+	dialog::backdrop {
+		background: #0f06;
+		backdrop-filter: blur(5px);
+	}
+</style>
+
+<h1>Overlays, dialogs, en meer</h1>
+
+<p>Doel: Jullie weer veel te veel vertellen over overlays, en een dialoog starten over <code>&lt;dialog></code>. Badum tsh.</p>
+<ul>
+	<li>Wat is een overlay/dialoogvenster/popup/popover? [Rondvraag + demo]</li>
+	<li>Divs en hacks, al jaren!</li>
+	<li>Problemen? [Rondvraag]</li>
+	<li>Modaliteit, toegankelijkheidsissues, focus management (veel meer info te vinden bij <a href="https://hidde.blog/dialog-modal-popover-differences/">Hidde</a></li>
+	<li>Concept van <em>inertness</em>, <a href="https://html.spec.whatwg.org/multipage/interaction.html#the-inert-attribute"><code>inert</code> attribute</a></li>
+	<li>Go webstandaarden!</li>
+	<li><code>&lt;dialog></code> element, <a href="https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element">specificatie</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog">MDN</a></li>
+	<li><code>::backdrop</code>, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop">MDN</a></li>
+	<li>Live coding (Tessa's en Ralphs cases)</li>
+</ul>
+
+<section id="demo-1">
+	<h2>Demo 1, een plantje selecteren</h2>
+
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et <a href="#foo">dolore</a> magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat.</p>
+
+	<button type="button" id="selecteer-plant-button">Selecteer een plantje</button>
+
+	<dialog id="selecteer-plant-dialog">
+		<form method="dialog">
+			<label>Selecteer je plant
+				<select>
+					<option value="http://plantswap.sprint5.tviergever.student.fdnd.nl/aloe-vera-verzorg-info.html">Aloë Vera</option>
+					<option value="http://plantswap.sprint5.tviergever.student.fdnd.nl/bananenplant-verzorg-info.html">Bananenplant</option>
+					<option value="https://fdnd.nl">Ik wil geen plant, ik wil naar fdnd.nl</option>
+				</select>
+			</label>
+			Hierna word je doorgestuurd naar de pagina over die plant.
+			<!-- Misschien is gewoon een lijst met <a>'tjes handiger :) -->
+			<button type="submit">OK</button>
+		</form>
+	</dialog>
+
+	<script type="module">
+		let button = document.getElementById('selecteer-plant-button')
+		var dialogDingetjeWeerEenDodeKitten = document.querySelector('#selecteer-plant-dialog')
+
+		button.addEventListener('click', function() {
+			dialogDingetjeWeerEenDodeKitten.showModal()
+		})
+
+		dialogDingetjeWeerEenDodeKitten.addEventListener('submit', function() {
+			var selectThingy = document.querySelector('select')
+			location.href = selectThingy.value
+		})
+	</script>
+</section>
+
+
+<section id="demo-2">
+	<h2>Demo 2, een stekje toevoegen via een formulier</h2>
+
+	<style>
+		#demo-2 section {
+			display: flex;
+			gap: 20px;
+			overflow: auto;
+			scroll-snap-type: x mandatory;
+			scroll-behavior: smooth;
+		}
+			#demo-2 article {
+				position: relative;
+				scroll-snap-align: center;
+			}
+				#demo-2 h3 {
+					position: absolute;
+					right: 0;
+					bottom: 20px;
+					left: 0;
+					margin: 0;
+					padding: 20px;
+					text-align: center;
+					background: #0f06;
+				}
+				#demo-2 img {
+					vertical-align: middle;
+					border-radius: 10px;
+				}
+	</style>
+
+	<p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+	<section>
+		<article>
+			<h3>Orchidee</h3>
+			<img src="https://ralphkocken.github.io/look-and-feel-corporate-identity/assets/plant(1).avif" alt="" width="200" height="300">
+		</article>
+		<article>
+			<h3>Kale Jonker</h3>
+			<img src="https://ralphkocken.github.io/look-and-feel-corporate-identity/assets/plant(2).avif" alt="" width="200" height="300">
+		</article>
+		<article>
+			<h3>Duifkruid</h3>
+			<img src="https://ralphkocken.github.io/look-and-feel-corporate-identity/assets/plant(3).avif" alt="" width="200" height="300">
+		</article>
+		<article>
+			<h3>Longkruid</h3>
+			<img src="https://ralphkocken.github.io/look-and-feel-corporate-identity/assets/plant(4).avif" alt="" width="200" height="300">
+		</article>
+		<article>
+			<h3>Bieslook</h3>
+			<img src="https://ralphkocken.github.io/look-and-feel-corporate-identity/assets/plant(5).avif" alt="" width="200" height="300">
+		</article>
+		<article>
+			<h3>Zonnebloem</h3>
+			<img src="https://ralphkocken.github.io/look-and-feel-corporate-identity/assets/plant(6).avif" alt="" width="200" height="300">
+		</article>
+		<article>
+			<h3>Cactus</h3>
+			<img src="https://ralphkocken.github.io/look-and-feel-corporate-identity/assets/plant(7).avif" alt="" width="200" height="300">
+		</article>
+
+	</section>
+
+	<button type="button" id="meld-aan">Meld je stekje aan</button>
+
+	<dialog id="stekje-aanmelden">
+		<form method="dialog">
+			<label>Naam van je plantje
+				<input type="text" name="naam-stekje" required>
+			</label>
+			<label>Foto van je plantje
+				<input type="file" name="foto-stekje" required type="image/*">
+			</label>
+			<button type="submit">OK</button>
+		</form>
+	</dialog>
+
+	<script type="module">
+		var meldJePlantAanButton = document.getElementById('meld-aan')
+		var plaatjeAanmeldenDialog = document.getElementById('stekje-aanmelden')
+		var section = document.querySelector('#demo-2 section')
+
+		meldJePlantAanButton.addEventListener('click', function() {
+			plaatjeAanmeldenDialog.showModal()
+		})
+
+		plaatjeAanmeldenDialog.addEventListener('submit', function() {
+			var eenKloon = section.querySelector('article').cloneNode(true)
+			var ingevuldeNaam = document.querySelector('input[name="naam-stekje"]')
+			var geselecteerdeFoto = document.querySelector('input[name="foto-stekje"]')
+
+			// Vergeet dit voor nu! :)
+			eenKloon.querySelector('h3').textContent = ingevuldeNaam.value
+			// Vergeet dit voor nu! :)
+			eenKloon.querySelector('img').src = window.URL.createObjectURL(geselecteerdeFoto.files[0])
+
+			plaatjeAanmeldenDialog.querySelector('form').reset()
+
+			// Nieuw! Een node toevoegen aan een andere node
+			section.append(eenKloon)
+
+			// En focus het net toegevoegde dingetje
+			eenKloon.scrollIntoView()
+		})
+	</script>
+</section><html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers msdt:dt="string">FDND 2223 - Leden</mso:display_urn_x003a_schemas-microsoft-com_x003a_office_x003a_office_x0023_SharedWithUsers>
+<mso:SharedWithUsers msdt:dt="string">7;#FDND 2223 - Leden</mso:SharedWithUsers>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>

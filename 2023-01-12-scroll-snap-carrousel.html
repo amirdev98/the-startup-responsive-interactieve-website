@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="nl">
+ <head>
+  <meta charset="utf-8">
+  <title>Een kleine carrousel met scroll-snap</title>
+  <style>
+   body {
+    max-width: 40em;
+    margin: 0 auto;
+    font-family: sans-serif;
+    line-height: 1.4;
+    background: #000;
+    color: #fff;
+   }
+   style[contenteditable], script {
+    position: relative;
+    display: block;
+    white-space: pre-wrap;
+    font-family: monospace;
+    border: 1px solid;
+    margin: 1em 0;
+    padding: 1em;
+    font-size: 120%;
+   }
+   style[contenteditable]::before, script::before {
+    float: right;
+    border: 1px solid;
+    margin: -1em;
+    padding: 1em;
+    border-top: none;
+    border-right: none;
+   }
+   style[contenteditable]::before {
+    content: 'CSS';
+   }
+   script::before {
+    content: 'JS';
+   }
+   .carrousel {
+    margin: 0 auto;
+    background: #000;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border: 1px solid;
+   }
+   .carrousel-a {
+    text-decoration: none;
+   }
+   img {
+    vertical-align: middle;
+   }
+   a {
+    color: inherit;
+   }
+  </style>
+ </head>
+ <body>
+  <h1>Een kleine carrousel met scroll-snap</h1>
+  <aside><p>Alle CSS hieronder is live te bewerken, dus experimenteer met wat je ziet.</p></aside>
+  <section id="voorbeeld-1">
+   <h2>Stap 1: de HTML (view-source!</h2>
+   <div class="carrousel">
+
+    <a href="https://campspace.com/" class="carrousel-a">
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="Campspace" src="https://campspace.com/media/medium/uploads/space/cf/4c/53/cf4c531eff08bec35e26edee10b3d0f3.jpg" height="4000" width="6000" decoding="async">
+     </picture>
+
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/36/49/_1/3649_1_5cdc02e44c4c5.jpg" height="1080" width="1620" decoding="async" loading="lazy">
+     </picture>
+
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/36/54/_1/3654_1_5ee776e0506f2.jpg" height="1080" width="1620" decoding="async" loading="lazy">
+     </picture>
+
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/detail/uploads/space/a6/69/0d/a6690d1437701600b7f0df105ad6dbe8.jpg" height="6000" width="4000" decoding="async" loading="lazy">
+     </picture>
+
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/18/e0/2b/18e02b7375ffca48ddef0ff18c9ef1d7.jpg" height="4000" width="6000" decoding="async" loading="lazy">
+     </picture>
+    </a>
+
+    <!--
+    <span class="carrousel-indicator">
+        <span class="carrousel-indicator-span">
+            <span class="carrousel-indicator-span-span is-active"></span>
+            <span class="carrousel-indicator-span-span"></span>
+            <span class="carrousel-indicator-span-span"></span>
+            <span class="carrousel-indicator-span-span"></span>
+            <span class="carrousel-indicator-span-span"></span>
+        </span>
+    </span>
+    -->
+   </div>
+
+   <h2>Stap 1: afbeeldingen schalen</h2>
+   <style contenteditable>.carrousel {
+ /* Waarschijnlijk laat je dit door je layout bepalen */
+ width: 300px;
+}
+
+.carrousel img {
+ width: 100%;
+ height: auto;
+ aspect-ratio: 16 / 9;
+ object-fit: cover;
+}</style>
+
+   <h2>Stap 2: afbeeldingen naast elkaar zetten</h2>
+   <style contenteditable>.carrousel-a {
+ display: flex;
+}
+.carrousel-picture {
+ /* Laat afbeeldingen niet groeien */
+ flex-grow: 0;
+ /* Laat afbeeldingen niet kleiner worden */
+ flex-shrink: 0;
+ /* Maak ze standaard 100% breed */
+ flex-basis: 100%;
+}</style>
+
+   <h2>Stap 3: afbeeldingen scrollbaar maken</h2>
+   <style contenteditable>.carrousel-a {
+ overflow: auto;
+}</style>
+
+   <h2>Stap 4: snappable maken!</h2>
+   <style contenteditable>.carrousel-a {
+ scroll-snap-type: x mandatory;
+}
+
+.carrousel-picture {
+ scroll-snap-align: center;
+}</style>
+   <h3>Meer info?</h3>
+   <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap">Documentatie op MDN</a></li>
+    <li><a href="https://www.youtube.com/watch?v=34zcWFLCDIc">📹 Oh Snap, door Adam Argyle</a></li>
+   </ul>
+
+   <h2>Stap 4b: scrollbars onzichtbaar maken?</h2>
+   <style contenteditable>.carrousel-a { scrollbar-width: none; }
+
+.carrousel-a::-webkit-scrollbar { display: none; }</style>
+   <h3>Meer info?</h3>
+   <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars">CSS Scrollbars op MDN</a></li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width"><code>scrollbar-width</code> op MDN</a></li>
+   </ul>
+
+   <h2>Stap 5: pijltjes toevoegen (een manier, <em>niet</em> dé)</h2>
+   <style contenteditable>.carrousel-a {
+ align-items: center;
+ --arrow-size: 40px;
+}
+
+.carrousel-a::before, .carrousel-a::after {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ position: sticky;
+ background: #fff;
+ border-radius: 5px;
+ box-shadow: 0 0 0 5px rgba(0, 0, 0, .4);
+ height: var(--arrow-size);
+ flex: 0 0 var(--arrow-size);
+ opacity: .4;
+ transition: opacity .2s ease-out;
+}
+.carrousel-a::before {
+ content: '⬅️';
+ left: 20px;
+ margin-right: calc(var(--arrow-size) * -1);
+}
+.carrousel-a::after {
+ content: '➡️';
+ right: 20px;
+ margin-left: calc(var(--arrow-size) * -1);
+}
+.carrousel-a:hover::before, .carrousel-a:hover::after, .carrousel-a:focus::before, .carrousel-a:focus::after {
+ opacity: 1;
+}</style>
+
+   <h2>Stap 6: pijltjes klikbaar maken</h2>
+   <style contenteditable>.carrousel-a {
+ scroll-behavior: smooth;
+}</style>
+
+   <script>function scrollLeftOrRight(uiEvent) {
+
+ if (uiEvent.target.nodeName == 'A' && uiEvent.offsetX == 0 && uiEvent.offsetY == 0) {
+  // Keyboard enter; de muis x en y positie zijn dan altijd 0.
+  // In dat geval, gewoon de link volgen
+  return;
+ } else if (uiEvent.target.nodeName == 'IMG') {
+  // Een click op een deel van de <img>, niet op de ::before en ::after pijltjes
+  // (want die zijn onderdeel van de <a>)
+  // In dat geval, ook gewoon de link volgen
+  return;
+ }
+ // Niet heel relevant, maar hiermee zorg je dat de afmetingen van de carrousel in CSS blijven
+ // En pas in JavaScript worden opgevraagd
+ var scrollWidth = this.scrollWidth;
+ var offsetWidth = this.offsetWidth;
+ var scrollLeft = this.scrollLeft;
+ // Scroll naar links, of naar rechts, afhankelijk van waar we klikten
+ var scrollXBy = (uiEvent.offsetX < offsetWidth / 2 ? -1 : 1) * offsetWidth;
+ if (scrollXBy < 0 && scrollLeft == 0) {
+  // Als we bij de eerste afbeelding zijn, ga dan naar de laatste
+  scrollXBy = scrollWidth - offsetWidth;
+ } else if (scrollXBy > 0 && Math.abs(scrollWidth - (scrollLeft + offsetWidth)) <= 1) {
+  // Als we bij de laatste afbeelding zijn, ga dan naar de eerste
+  scrollXBy = (-1 * scrollWidth) + scrollXBy;
+ }
+ this.scrollBy({
+  left: scrollXBy
+ });
+ // Volg de <a href=""> niet als we hier zijn gekomen..
+ uiEvent.preventDefault();
+
+}</script>
+   <script>document.querySelector('#voorbeeld-1 .carrousel-a').addEventListener('click', scrollLeftOrRight);</script>
+  </section>
+
+  <section id="voorbeeld-2">
+   <h2>Stap 7: indicators?</h2>
+   <div class="carrousel">
+    <a href="https://campspace.com/" class="carrousel-a">
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/36/54/_1/3654_1_5ee776e0506f2.jpg" height="1080" width="1620" decoding="async">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/detail/uploads/space/a6/69/0d/a6690d1437701600b7f0df105ad6dbe8.jpg" height="6000" width="4000" decoding="async" loading="lazy">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="Campspace" src="https://campspace.com/media/medium/uploads/space/cf/4c/53/cf4c531eff08bec35e26edee10b3d0f3.jpg" height="4000" width="6000" decoding="async" loading="lazy">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/36/49/_1/3649_1_5cdc02e44c4c5.jpg" height="1080" width="1620" decoding="async" loading="lazy">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/18/e0/2b/18e02b7375ffca48ddef0ff18c9ef1d7.jpg" height="4000" width="6000" decoding="async" loading="lazy">
+     </picture>
+    </a>
+
+    <span class="carrousel-indicator">
+        <span class="carrousel-indicator-span">
+            <span class="carrousel-indicator-span-span is-active"></span>
+            <span class="carrousel-indicator-span-span"></span>
+            <span class="carrousel-indicator-span-span"></span>
+            <span class="carrousel-indicator-span-span"></span>
+            <span class="carrousel-indicator-span-span"></span>
+        </span>
+    </span>
+   </div>
+   <style contenteditable>.carrousel-indicator {
+ --indicator-size: 6px;
+ --max-indicators: 5;
+
+ position: absolute;
+ bottom: 16px;
+ left: 16px;
+ max-width: calc(var(--max-indicators) * var(--indicator-size) + (var(--max-indicators) - 1) * var(--indicator-size) / 2);
+ overflow: hidden;
+ overflow: clip;
+ pointer-events: none;
+}
+ .carrousel-indicator-span {
+  display: flex;
+  gap: calc(var(--indicator-size) / 2);
+  height: var(--indicator-size);
+ }
+  .carrousel-indicator-span-span {
+   flex: 0 0 var(--indicator-size);
+   width: var(--indicator-size);
+   height: var(--indicator-size);
+   border-radius: 50%;
+   background: #fff;
+   opacity: .5;
+   transition: .2s ease-out opacity;
+  }
+  .carrousel-indicator-span-span.is-active {
+   opacity: 1;
+  }</style>
+   <script>var carrousel = document.querySelector('#voorbeeld-2 .carrousel-a');
+var indicator = document.querySelector('#voorbeeld-2 .carrousel-indicator-span');
+
+var carrouselScrollWidth = carrousel.scrollWidth;
+var totalItems = Math.round(carrouselScrollWidth / carrousel.offsetWidth);
+var active = 0;
+var activeEl = indicator.querySelector('.is-active');
+
+carrousel.addEventListener('scroll', function(uiEvent) {
+ var newActive = Math.round(this.scrollLeft / carrouselScrollWidth * totalItems);
+ if (active != newActive) {
+  activeEl.classList.remove('is-active');
+  activeEl = indicator.children[newActive];
+  activeEl.classList.add('is-active');
+  active = newActive;
+ }
+ if (totalItems > 5) {
+  // TODO ;)
+ }
+});</script>
+   <script>document.querySelector('#voorbeeld-2 .carrousel-a').addEventListener('click', scrollLeftOrRight);</script>
+  </section>
+
+  <section id="voorbeeld-3">
+   <h2>Stap 8: losse pijltjes?</h2>
+   <style>
+    menu {
+     display: flex;
+     padding: 0;
+     list-style: none;
+    }
+     menu button {
+      width: 40px;
+      height: 40px;
+      font-size: 1.5em;
+     }
+    .carrousel-a-without-arrows::before, .carrousel-a-without-arrows::after {
+     display: none;
+    }
+   </style>
+   <menu>
+    <li><button id="button-prev">⬅️</button></li>
+    <li><button id="button-next">➡️</button></li>
+   </menu>
+   <div class="carrousel">
+    <a href="https://campspace.com/" class="carrousel-a carrousel-a-without-arrows">
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/detail/uploads/space/a6/69/0d/a6690d1437701600b7f0df105ad6dbe8.jpg" height="6000" width="4000" decoding="async">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="Campspace" src="https://campspace.com/media/medium/uploads/space/cf/4c/53/cf4c531eff08bec35e26edee10b3d0f3.jpg" height="4000" width="6000" decoding="async" loading="lazy">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/36/49/_1/3649_1_5cdc02e44c4c5.jpg" height="1080" width="1620" decoding="async" loading="lazy">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/36/54/_1/3654_1_5ee776e0506f2.jpg" height="1080" width="1620" decoding="async" loading="lazy">
+     </picture>
+     <picture class="carrousel-picture">
+      <img class="carrousel-img" alt="" src="https://campspace.com/media/medium/uploads/space/18/e0/2b/18e02b7375ffca48ddef0ff18c9ef1d7.jpg" height="4000" width="6000" decoding="async" loading="lazy">
+     </picture>
+    </a>
+   </div>
+   <script>var prevButton = document.getElementById('button-prev');
+
+prevButton.addEventListener('click', function() {
+ var el = document.querySelector('#voorbeeld-3 .carrousel-a');
+ el.scrollBy({left: -1 * el.offsetWidth});
+});
+
+var nextButton = document.getElementById('button-next');
+
+nextButton.addEventListener('click', function() {
+ var el = document.querySelector('#voorbeeld-3 .carrousel-a');
+ el.scrollBy({left: el.offsetWidth});
+});</script>
+  </section>
+
+ </body>
+</html>

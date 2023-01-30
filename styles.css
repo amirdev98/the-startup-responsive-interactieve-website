@@ -1,3 +1,10 @@
+:root{
+  valley_red:#E02C35;
+  Valley_white:#FDFAF6;
+  valley_black:#222222;
+
+
+}
 html {
   margin: 0;
   padding: 0;
@@ -20,7 +27,7 @@ body {
 header {
   height: 100vh;
   height: 100svh;
-  /* max-height: 1080px; */
+  max-height: 1080px;
   min-width: 502px;
   position: relative;
   background-color: darkgrey;
@@ -388,21 +395,6 @@ h6 {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* main */
 main {

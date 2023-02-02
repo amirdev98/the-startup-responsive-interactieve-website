@@ -19,7 +19,7 @@ The Valley is a company that specializes in creating complete customer journeys 
  
 
 
-## Een responsive en interactive website
+## De "Nike case study " website responsive en interactive maken
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
 <!-- Voeg een mooie poster visual toe 📸 -->
 <img width="1633" alt="image" src="https://user-images.githubusercontent.com/81859699/216283003-00bdc0d7-180b-43d7-b2fa-bccec15a7834.png">

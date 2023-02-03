@@ -60,15 +60,13 @@ http://amir-startup-responsive-interactive-website.student.fdnd.nl/
 - [x]  Modal maken
 - [x]  HTML validatie
 - [x]  Huisstijl is toegevoegd
-
+- [x]  Form maken
+- [x]  Responsive maken voor desktop
+- [x]  Form validatie
+- [x]  Het modal kunnen sluiten en weer openen
 ❌ Wat er niet is gelukt :
 
 - [ ]  Contact us knop werkend maken
-- [ ]  Modal maken
-- [ ]  Form maken
-- [ ]  Form validatie
-- [ ]  Het modal kunnen sluiten en weer openen
-- [ ]  Responsive maken voor de desktop
 - [ ]  Animaties
 - [ ]  De gewenste content staat erin
 - [ ]  Carousel

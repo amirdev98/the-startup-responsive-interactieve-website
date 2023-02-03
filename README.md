@@ -27,29 +27,75 @@ verschillende animaties, een modal en een carousel maken.
 
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
 
-De website is een responsive website gemaakt voor "The Valley"
-Het is helaas nog incompleet, de website moest een modal hebben en een carousel.
-De bovenste componenten zijn wel responsive.
+De website is een responsive website.
+De website heeft een modal.
+Het is helaas nog incompleet, de website moest nog en een carousel hebben.
+Alleen de bovenste componenten zijn wel responsive.
+De header image is het beste deel van de website omdat ik het als background-image van de header heb gezet.
 
 Dit is de desktop versie:
 
-<!-- Voeg een mooie poster visual toe 📸 -->
+ ## Poster visual 📸
 <img width="1633" alt="image" src="https://user-images.githubusercontent.com/81859699/216283003-00bdc0d7-180b-43d7-b2fa-bccec15a7834.png">
 
 
-Dit is de tablet versie:
+## Dit is de tablet versie:
 <img width="878" alt="image" src="https://user-images.githubusercontent.com/81859699/216284365-37ee1ee5-d629-4443-bfc2-43270d685c53.png">
 
 
 
-Dit is de mobiele versie:
+## Dit is de mobiele versie:
+
 <img width="485" alt="image" src="https://user-images.githubusercontent.com/81859699/216284825-47c1e557-b155-4eab-97ec-032993acb187.png">
 
 
 <!-- Voeg een link toe naar Github Pages 🌐-->
 http://amir-startup-responsive-interactive-website.student.fdnd.nl/
 
+## 📑 Checklist gelukt/niet gelukt
+
+✅ Wat er wel is gelukt:
+
+- [x]  Responsive (mobiel & tablet)
+- [x]  Modal maken
+- [x]  HTML validatie
+- [x]  Huisstijl is toegevoegd
+
+❌ Wat er niet is gelukt :
+
+- [ ]  Contact us knop werkend maken
+- [ ]  Modal maken
+- [ ]  Form maken
+- [ ]  Form validatie
+- [ ]  Het modal kunnen sluiten en weer openen
+- [ ]  Responsive maken voor de desktop
+- [ ]  Animaties
+- [ ]  De gewenste content staat erin
+- [ ]  Carousel
+
+## 💯 Kenmerken
+
+- HTML
+- CSS
+- JS
+- Visual studio Code
+- Figma
+
+
 ## HTML structuur: 
+
+https://github.com/amirdev98/the-valley-case-study/blob/main/index.html
+
+In de CSS heb ik mediaqueries gebruikt om het responsive te krijgen:
+
+Ik heb hier voor 2 brakepoints gebruikt om dat te bereiken.
+
+https://github.com/amirdev98/the-valley-case-study/blob/main/styles.css#L405-L440
+
+
+
+
+
 <!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? -->
 
 
